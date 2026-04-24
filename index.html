@@ -63,35 +63,19 @@
   <ul id="lista-edicoes"></ul>
 
   <script>
-    const anosPossiveis = Array.from({ length: 10 }, (_, i) => 2018 + i);
+    const edicoes = [2026, 2025, 2024];
     const lista = document.getElementById('lista-edicoes');
-    const basePath = location.pathname.replace(/\/$/, '');
-  
-    async function verificarPastas() {
-      for (const ano of anosPossiveis.reverse()) {
-        try {
-          const response = await fetch(`${basePath}/${ano}/index.html`, { method: 'HEAD' });
-          if (response.ok) {
-            const li = document.createElement('li');
-            const link = document.createElement('a');
-            link.href = `${ano}/`;
-            link.innerHTML = `<i class="fas fa-calendar-alt icon"></i> Edição ${ano}`;
-            li.appendChild(link);
-            lista.appendChild(li);
-          }
-        } catch (err) {
-          // Ignora anos não existentes
-        }
-      }
-  
-      if (!lista.children.length) {
-        document.querySelector('p').innerText = 'Nenhuma edição encontrada.';
-      } else {
-        document.querySelector('p').remove();
-      }
-    }
-  
-    verificarPastas();
+
+    edicoes.forEach(ano => {
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = `${ano}/`;
+      link.innerHTML = `<i class="fas fa-calendar-alt icon"></i> Edição ${ano}`;
+      li.appendChild(link);
+      lista.appendChild(li);
+    });
+
+    document.querySelector('p').remove();
   </script>
   
 </body>
