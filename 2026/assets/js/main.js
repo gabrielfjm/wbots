@@ -120,6 +120,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
+   * Active nav link based on current page
+   */
+  const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('#navbar ul li a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentFile || (currentFile === '' && href === 'index.html')) {
+      link.closest('li').classList.add('active');
+    }
+  });
+
+  /**
    * Toggle mobile nav dropdowns
    */
   const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
