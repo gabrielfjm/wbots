@@ -699,6 +699,129 @@ section { padding: 90px 0; overflow: hidden; }
 
 hr.w-hr { border:none; border-top:1px solid var(--w-border); margin:32px 0; }
 
+/* ── DATES BANNER (Call for Papers) ────────────────────────── */
+.dates-banner-section {
+  background: linear-gradient(180deg, var(--w-bg2) 0%, var(--w-bg3) 100%);
+  border-bottom: 1px solid rgba(14,162,189,.20);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+.dates-banner-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(14,162,189,.09) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.dates-banner-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.dates-banner-header h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.dates-banner-header p { color: var(--w-muted); font-size: .97rem; }
+
+.dates-banner-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+@media (max-width: 991px) {
+  .dates-banner-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 575px) {
+  .dates-banner-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.date-banner-card {
+  background: var(--w-card);
+  border: 1px solid var(--w-border);
+  border-radius: 14px;
+  padding: 28px 18px 24px;
+  text-align: center;
+  position: relative;
+  transition: border-color .25s, box-shadow .25s, transform .25s;
+}
+.date-banner-card:hover {
+  border-color: rgba(14,162,189,.38);
+  box-shadow: 0 8px 30px rgba(14,162,189,.10);
+  transform: translateY(-3px);
+}
+.date-banner-card.dbc-highlight {
+  border-color: var(--w-primary);
+  background: rgba(14,162,189,.07);
+  box-shadow: 0 0 40px rgba(14,162,189,.14);
+}
+.date-banner-card.dbc-event {
+  border-color: rgba(30,195,224,.26);
+  background: rgba(14,162,189,.04);
+}
+
+.dbc-badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--w-primary);
+  color: #fff;
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 13px;
+  border-radius: 100px;
+  white-space: nowrap;
+  box-shadow: 0 2px 12px rgba(14,162,189,.45);
+}
+
+.dbc-icon {
+  width: 50px; height: 50px;
+  background: rgba(14,162,189,.11);
+  border: 1px solid rgba(14,162,189,.20);
+  border-radius: 13px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.25rem;
+  color: var(--w-primary);
+  margin: 0 auto 14px;
+}
+.date-banner-card.dbc-highlight .dbc-icon {
+  background: rgba(14,162,189,.18);
+  border-color: rgba(14,162,189,.38);
+  color: var(--w-accent);
+}
+
+.dbc-label {
+  font-size: .74rem;
+  color: var(--w-muted);
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  font-weight: 600;
+  margin-bottom: 9px;
+  line-height: 1.45;
+}
+
+.dbc-date {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--w-light);
+  letter-spacing: -.2px;
+}
+.date-banner-card.dbc-highlight .dbc-date {
+  font-size: 1.3rem;
+  color: var(--w-accent);
+  text-shadow: 0 0 18px rgba(0,212,255,.30);
+}
+.date-banner-card.dbc-event .dbc-date {
+  color: #fff;
+  font-size: 1.25rem;
+}
+
 /* ── REVIEW CRITERIA ────────────────────────────────────────── */
 .criteria-list { list-style:none; padding:0; margin:0; }
 .criteria-list li {
